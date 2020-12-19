@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+  <form >
+    <div class="wrapper style4" >
+
+      <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+    </div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row style="background-color:'#9abcd9'">
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <span class="menu-spacer"></span>
+        <div>
+          <a mat-button [routerLink]="'/createscheme'"> Create scheme </a>
+          <a mat-button [routerLink]="'/schemelist'"> Manage scheme </a>
+          <a mat-button [routerLink]="'/allocatefund'"> Allocate fund </a>
+          <a mat-button [routerLink]="'/disbursement'"> Fund disbursement </a>
+          <a mat-button [routerLink]="'/onboarding'"> Onboard customer </a>
+          <a mat-button [routerLink]="'/reports'"> Compliance report </a>
+          <a mat-button [routerLink]="'/home'"> Logout </a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <br/>
+    <div>
+      <h1 align="center"> Fund disbursement</h1>
+    </div>
+    <fieldset>
+      <legend>Scheme details</legend>
+      <div class="columns">
+        <div class="item" class="form-group">
+          <label for="schemeName">Scheme name</label>
+          <input type="text" class="form-control" id="schemeName" [(ngModel)]="scheme.schemeName" name="schemeName" placeholder="School for for under privileged student" disabled="true" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="allocatedAmount"> Allocated amount</label>
+          <input type="text" class="form-control" id="allocatedAmount" [(ngModel)]="scheme.schemeAmount" name="allocatedAmount" placeholder="12,20,220" disabled="true" />
+        </div>
+      </div>
+    </fieldset>
+  <br>
+    <fieldset>
+      <legend>Fund house details</legend>
+      <div class="columns">
+    <div class="item" class="form-group">
+           <label for="charityTrustName">Charity house name</label>
+          <select id="fund" #mySelect name ="fundHouse" [(ngModel)]="fund"  (change)="changeSelectCharity($event,mySelect.value)" >
+              <option *ngFor="let fund of funds;let i=index" [value]="i"  >{{fund.homeName}}</option>
+          </select>
+
+
+          <!-- <input type="text" class="form-control" id="charityTrustName" [(ngModel)]="fund.charityTrustName" name="charityTrustName" placeholder="North Division" disabled="true" /> -->
+        </div>
+
+        <div class="item" class="form-group">
+          <label for="samount"> Balance amount</label>
+          <input type="text" class="form-control" id="balanceAmount" [(ngModel)]="stateFund.schemeBalanceAmount" name="balanceAmount" placeholder="20,220" disabled="true" />
+        </div>
+      </div>
+    </fieldset>
+    <br>
+        <fieldset>
+          <legend>User Details</legend>
+          <div class="columns">
+            <div class="item" class="form-group">
+              <label for="fName">First name</label>
+              <input type="text" class="form-control" id="firstName" [(ngModel)]="disbursement.firstName" name="firstName" placeholder="First Name"  />
+            </div>
+            <div class="item" class="form-group">
+              <label for="lName">Last name</label>
+              <input type="text" class="form-control" id="lastName" [(ngModel)]="disbursement.lastName" name="lastName" placeholder="Last Name"  />
+            </div>
+            <div class="item" class="form-group">
+              <label for="dob">Date of birth</label>
+              <input type="text" class="form-control" id="dob" [(ngModel)]="disbursement.dob" name="dob" placeholder="Date of birth in YYYY-MM-DD"  />
+            </div>
+            <div class="item" class="form-group">
+              <label for="income">Income</label>
+              <input type="text" class="form-control" id="income" [(ngModel)]="disbursement.income" name="income" placeholder="Enter your income"  />
+            </div>
+            <div class="item">
+              <label for="gender">Gender <span>*</span></label>
+              <input type="radio" id="M"  value="Male" name="gender" [(ngModel)] = "disbursement.gender"><label for="male" class="special" >Male</label>
+              <input type="radio" id="F" value="Female"  name="gender" [(ngModel)] = "disbursement.gender"><label for="female" class="special" >Female</label>
+            </div>
+            <div class="item">
+              <label for="employed">isEmployed <span>*</span></label>
+              <input type="radio" id="Y" name="employed" value="Yes" [(ngModel)] = "disbursement.isEmployed"><label for="employed" class="special" >Yes</label>
+              <input type="radio" id="N" name="employed" value="No" [(ngModel)] = "disbursement.isEmployed"><label for="notEmployed" class="special" >No</label>
+            </div>
+
+            <div class="item" class="form-group">
+              <label for="idNo"> Identification number</label>
+              <input type="text" class="form-control" id="identificationNumber" [(ngModel)]="disbursement.identificationNumber" name="identificationNumber" placeholder="Identification Number" />
+            </div>
+          </div>
+        </fieldset>
+    <br>
+    <fieldset>
+      <legend>Account Information</legend>
+      <div class="columns">
+        <div class="item" class="form-group">
+          <label for="bankCode">Bank Code</label>
+          <input type="text" class="form-control" id="bankCode" [(ngModel)]="disbursement.bankCode" name="bankCode" placeholder="Bank Code"  />
+        </div>
+        <div class="item" class="form-group">
+          <label for="accountNumber">Account number</label>
+          <input type="text" class="form-control" id="accountNumber" [(ngModel)]="disbursement.accountNumber" name="accountNumber" placeholder="Account Number"  />
+        </div>
+        <div class="item" class="form-group">
+          <label >Disbursement amount<span>*</span></label>
+          <input type="text" class="form-control" id="disbursementAmount" name="disbursementAmount" [(ngModel)]="disbursement.disbursementAmount" placeholder="Disbursement amount" />
+
+        </div>
+
+        <div class="item" class="form-group">
+          <label >Artificial Intelligence advice </label>
+           <label > {{disbursement.mlScore}} </label>
+          <input type="text"  [ngClass]="mlScoreStyle" id="mlScore" name="mlScore" [(ngModel)]="mlresponse.PREDICTED_STATUS" placeholder="ML Score" disabled="true" />
+            <button type="verify"   (click)="verifyBeneficiay()">Verify</button>
+        </div>
+
+        <!-- <div class="conainer">
+          <div class="row">
+            <div class="col-xs-12">
+                <div class="modal" id="verificationModal" tabindex="-1">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;  </button>
+                        <h4 class="modal-title"> Verification status</h4>
+                      </div>
+                      <div class="modal-body">
+
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </fieldset>
+    <div align="center">
+        <div class="btn-block">
+          <button type="back"  (click)="goToDashboard()">Back</button>
+          <button type="submit" (click)="save()">Submit</button>
+      </div>
+      <div class="btn-block">
+
+      </div>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

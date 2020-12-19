@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+  <form >
+
+  <div class="wrapper style4" >
+  <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+</div>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row style="background-color:'#9abcd9'">
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/createscheme'"> Create scheme </a>
+      <a mat-button [routerLink]="'/schemelist'"> Manage scheme </a>
+      <a mat-button [routerLink]="'/allocatefund'"> Allocate fund </a>
+      <a mat-button [routerLink]="'/disbursement'"> Fund disbursement </a>
+      <a mat-button [routerLink]="'/onboarding'"> Onboard customer </a>
+      <a mat-button [routerLink]="'/reports'"> Compliance report </a>
+      <a mat-button [routerLink]="'/home'"> Logout </a>
+    </div>
+  </mat-toolbar-row>
+
+  <!--<mat-toolbar-row>
+    <span style="font-size: 12px;background-color:'red'">SimpleCRM helps you easily manage your contacts</span>
+  </mat-toolbar-row>
+  -->
+</mat-toolbar>
+<div style="align:horizontal">
+<div  style="display: block; width: 400px; height: 400px;float:left;margin-left: 100px;margin-top: 50px">
+  <canvas baseChart
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+
+<div  style="display: block; width: 400px; height: 400px;float:left;margin-left: 200px;margin-top: 50px">
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
+
+  <div  style="display: block; width: 500px; height: 500px;float:left;margin-left: 0px;margin-top: 100px">
+    <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+    </canvas>
+  </div>
+
+  <div  style="display: block; width: 400px; height: 400px;float:left;margin-left: 200px;margin-top: 100px">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+    </canvas>
+  </div>
+
+
+</div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+  <form>
+    <div class="wrapper style4">
+      <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+    </div>
+    <br/>
+    <fieldset  >
+      <legend>Payment Confirmation</legend>
+      <div class="item">
+        <label for="confirmation1">Dear {{donation.fName}} {{donation.lName}} ,</label>
+        <label for="confirmation2">Thanks for donating {{donation.donationAmount}} USD for the charity. You can download your tax certificate below</label>
+      </div>
+
+    </fieldset>
+    <div align="center">
+      <div class="btn-block">
+        <button type="back" (click)="goToDashboard()">Back</button>
+        <a href="../assets/TaxCertificate.pdf" class='button2' target="_self"  >Download</a>
+      </div>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

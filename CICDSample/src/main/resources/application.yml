@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: transaction-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bchain
+server:
+  port: ${PORT:8091}
+web3j:
+  client-address: http://localhost:8545
+  
+contract-service:
+  url: http://localhost:8090/contract/owner

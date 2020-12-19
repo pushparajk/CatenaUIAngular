@@ -1,0 +1,12 @@
+Request deatils
+
+headers:Content-Type: multipart/form-data
+method:POST
+url:http://localhost:5444
+
+form variable name : gender         value :  Female 
+form variable name : dob            value :  12-Nov-90 
+form variable name : is_employed    value :  YES 
+form variable name : income         value :  76508 
+form variable name : amount         value :  673 
+form variable name : txn_date       value :  12-Nov-90 

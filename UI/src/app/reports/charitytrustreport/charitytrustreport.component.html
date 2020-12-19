@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+  <form >
+
+    <div class="wrapper style4" >
+      <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+    </div>
+
+    <mat-toolbar color="primary">
+      <mat-toolbar-row style="background-color:'#9abcd9'">
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <span class="menu-spacer"></span>
+        <div>
+          <a mat-button [routerLink]="'/createscheme'"> Create scheme </a>
+          <a mat-button [routerLink]="'/schemelist'"> Manage scheme </a>
+          <a mat-button [routerLink]="'/allocatefund'"> Allocate fund </a>
+          <a mat-button [routerLink]="'/disbursement'"> Fund disbursement </a>
+          <a mat-button [routerLink]="'/onboarding'"> Onboard customer </a>
+          <a mat-button [routerLink]="'/reports'"> Compliance report </a>
+          <a mat-button [routerLink]="'/home'"> Logout </a>
+        </div>
+      </mat-toolbar-row>
+
+
+
+    </mat-toolbar>
+    <br/>
+    <div align="left">
+      <a href="../reports" class='button2' target="_self"  >Charity scheme verification</a>
+    </div>
+    <div>
+      <h1 align="center">Charity trust verification report</h1>
+    </div>
+
+    <fieldset>
+      <legend>Scheme details</legend>
+
+      <div class="item">
+        <label >Scheme</label>
+        <select id="fund" #mySelect name ="scheme" [(ngModel)]="scheme"  (change)="changeSelectScheme($event,mySelect.value)" >
+          <option *ngFor="let scheme of schemes;let i=index" [value]="i"  >{{scheme.schemeName}}</option>
+        </select>
+      </div>
+      <div class="item">
+      <label >Charity </label>
+      <select id="fund" #mySelect1 name ="charity" [(ngModel)]="fund"  (change)="changeSelectCharity($event,mySelect1.value)" >
+        <option *ngFor="let fund of stateFund;let i=index" [value]="i"  >{{fund.homeName}}</option>
+      </select>
+    </div>
+
+
+      <div class="columns">
+        <div class="item" class="form-group">
+          <label for="samount"> Sanctioned amount</label>
+          <input type="text" class="form-control" id="sanctionedAmount"  name="sAmount" placeholder="Sanctioned Amount" disabled="true"  [(ngModel)]="selectCharity.sanctionedAmount  " />
+        </div>
+        <div class="item" class="form-group">
+          <label for="samount"> Balance amount</label>
+          <input type="text" class="form-control" id="balanceAmount"  name="bAmount" placeholder="Balance Amount" disabled="true" [(ngModel)]="selectCharity.schemeBalanceAmount" />
+        </div>
+      </div>
+    </fieldset>
+    <br/>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+        <tr>
+          <th>Select</th>
+          <th>Beneficiary Name</th>
+          <th>Amount</th>
+          <th>Verification status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let disbursement of disbursements;let i=index">
+          <td><input type="radio" #MySelect id="{{disbursement.disbursementAddress}}" [value]="i" name="disbursementAddress" (change)="onSelectBeneficiary($event,MySelect.value)" ></td>
+          <td>{{disbursement.firstName}} {{disbursement.lastName}}</td>
+          <td>{{disbursement.disbursementAmount}}</td>
+          <td>{{disbursement.contractStatus}}</td>
+
+        </tr>
+        <tbody>
+      </table>
+    </div>
+    <div>
+
+
+    </div>
+
+    <div align="center">
+      <div class="btn-block">
+        <button type="back"  (click)="goToDashboard()">Back</button>
+        <button type="verify" (click)="verify()">Verify</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

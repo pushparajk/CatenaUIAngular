@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div>
+  <h1 align="center"> Artificial Intelligence Score</h1>
+</div>
+
+<form >
+  <fieldset>
+      <legend>Score</legend>
+      <div class="columns">
+        <div class="item" class="form-group">
+          <label > Over all status: </label>
+          <label > {{mlresponse.PREDICTED_STATUS}} </label>
+        </div>
+        <div class="item" class="form-group">
+          <label > Normal Score: </label>
+          <label > {{mlresponse.NORMAL}} </label>
+        </div>
+        <div class="item" class="form-group">
+          <label > Suspect Score: </label>
+          <label > {{mlresponse.SUSPECT}}  </label>
+        </div>
+        <div class="item" class="form-group">
+          <label > Fraud Score: </label>
+          <label > {{mlresponse.FRAUD}}  </label>
+        </div>
+        <div class="item" class="form-group">
+          <label > Could be fraud Score: </label>
+          <label > {{mlresponse.COULD_BE_FRAUD}}  </label>
+        </div>
+      </div>
+    </fieldset>
+</form >
+
+</body>
+</html>
