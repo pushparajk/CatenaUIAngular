@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+   <form >
+    <div class="wrapper style4" >
+
+      <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+    </div>
+    <br/>
+    <fieldset  >
+      <legend>Charity Scheme Details</legend>
+      <div class="item">
+        <label >Scheme<span>*</span></label>
+        <!--
+        <select>
+          <option value="1" disabled selected>Select the scheme</option>
+          <option value="9" >School uniform scheme</option>
+          <option value="10">School study kit scheme</option>
+          <option value="11">School exam fee scheme</option>
+          <option value="12">School hostel fee scheme </option>
+          <a mat-button [routerLink]="'/home'"> Logout </a>
+        </select>
+        -->
+        <select id="fund" #mySelect name ="scheme" [(ngModel)]="scheme"  (change)="changeSelectScheme($event,mySelect.value)" >
+          <option *ngFor="let scheme of schemes;let i=index" [value]="i"  >{{scheme.schemeName}}</option>
+        </select>
+
+      </div>
+
+      <div class="columns">
+        <div class="item">
+          <label for="accountNumber">Account No<span>*</span></label>
+          <input id="acNO" type="text" [(ngModel)]="selectedScheme.accountNumber" name="acNo" disabled="true"/>
+        </div>
+        <div class="item">
+          <label for="AccountName">Account Name<span>*</span></label>
+          <input id="acName" type="text" name="acName" disabled="true" [(ngModel)]="selectedScheme.accountName"/>
+        </div>
+        <div class="item">
+          <label for="bankCode">Bank Code <span>*</span></label>
+          <input id="bnkCode" type="text"   name="bnkCode" disabled="true" [(ngModel)]="selectedScheme.bankcode"/>
+        </div>
+      </div>
+    </fieldset>
+    <br/>
+    <fieldset>
+      <legend>Donation Details</legend>
+      <div class="columns">
+        <div class="item" class="form-group">
+          <label for="fname">First Name<span>*</span></label>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="donation1.fName" name="fName" placeholder="First Name" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="lname"> Last Name<span>*</span></label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="donation1.lName" name="lName" placeholder="Last Name" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="IdentificationNo">Identificate Number<span>*</span></label>
+          <input type="text" class="form-control" id="idNo" name="idNo" [(ngModel)]="donation1.identificationNo"  placeholder="Identification No" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="TaxIdentificationNo"> Tax Identification Number<span>*</span></label>
+          <input type="text" class="form-control" id="taxIDNo" name="taxIDNo" [(ngModel)]="donation1.taxIdentificationNo" placeholder="Tax identification No" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="accountNumber">Account No<span>*</span></label>
+          <input type="text" class="form-control" id="donorACNo" name="donorACNo" [(ngModel)]="donation1.donorAccountNo" placeholder="Account No" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="AccountName">Account Name<span>*</span></label>
+          <input type="text" class="form-control" id="donorACName" name="donorACName" [(ngModel)]="donation1.donorAccountName" placeholder="Account Name" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="bankCode">Bank Code <span>*</span></label>
+          <input type="text" class="form-control" id="donorBankCode" name="donorBankCode" [(ngModel)]="donation1.donorBankCode" placeholder="Bank Code" />
+        </div>
+        <div class="item" class="form-group">
+          <label for="amount">Amount <span>*</span></label>
+          <input type="text" class="form-control" id="donationAmount" name="donationAmount" [(ngModel)]="donation1.donationAmount"  placeholder="Donation Amount" />
+        </div>
+
+      </div>
+      <div class="item" class="form-group">
+        <label for="Special Instruction">Special Instructions</label>
+        <textarea class="form-control" id="splInstrction" name="splInstrction"  [(ngModel)]="donation1.splInstrction" placeholder="Any comments to the trust" rows="3"></textarea>
+      </div>
+    </fieldset>
+    <div align="center">
+    <div class="btn-block">
+      <button type="back" (click)="goToDashboard()">Back</button>
+      <button type="submit" (click)="save()">Submit</button>
+    </div>
+    <div class="btn-block">
+
+    </div>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>

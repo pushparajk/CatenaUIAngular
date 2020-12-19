@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APJ Abdul Kalam Charity Trust</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="testbox" >
+  <form>
+    <div class="wrapper style4">
+      <h1 class="special">APJ Abdul Kalam Charity Trust</h1>
+    </div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row style="background-color:'#9abcd9'">
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <span class="menu-spacer"></span>
+        <div>
+          <a mat-button [routerLink]="'/createscheme'"> Create scheme </a>
+          <a mat-button [routerLink]="'/schemelist'"> Manage scheme </a>
+          <a mat-button [routerLink]="'/allocatefund'"> Allocate fund </a>
+          <a mat-button [routerLink]="'/disbursement'"> Fund disbursement </a>
+          <a mat-button [routerLink]="'/onboarding'"> Onboard customer </a>
+          <a mat-button [routerLink]="'/reports'"> Compliance report </a>
+          <a mat-button [routerLink]="'/home'"> Logout </a>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <br/>
+    <fieldset  >
+      <legend>Disbursement Confirmation</legend>
+      <div class="item">
+        <label for="confirmation1">Dear {{disbursement.firstName}} {{disbursement.lastName}} ,</label> <Br>
+        <label for="confirmation2">Amount {{disbursement.disbursementAmount}} USD credited to your account BankCode:  {{disbursement.bankCode}} and Account No: {{disbursement.accountNumber}}.</label>
+      </div>
+
+    </fieldset>
+    <div align="center">
+      <div class="btn-block">
+        <button type="back" (click)="goToDashboard()">Back</button>
+
+      </div>
+    </div>
+
+  </form>
+</div>
+</body>
+</html>
